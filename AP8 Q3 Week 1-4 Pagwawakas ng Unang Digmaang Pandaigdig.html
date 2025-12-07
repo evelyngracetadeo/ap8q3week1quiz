@@ -348,7 +348,7 @@ H5P.Video=function(p,h){function f(n,e,t={}){var i=this;i.oldTime=t.previousStat
   /* ===== Session 4 — offline tracking & score snapshot ===== */
   (function(){
     const ID = 's4';          // change for s2, s3, ... on other session files
-    const THRESHOLD = 32;     // minimum score to mark as Completed
+    const THRESHOLD = 9;     // minimum score to mark as Completed
 
     /* --- (Optional) time-on-task + tab switches --- */
     let seconds = Number(localStorage.getItem('time_' + ID) || 0);

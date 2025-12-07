@@ -242,7 +242,7 @@ H5P.Video=function(p,h){function f(n,e,t={}){var i=this;i.oldTime=t.previousStat
   /* ===== MathTibay offline tracking & score gate (Session 3) ===== */
   (function(){
     const ID = 's3';
-    const THRESHOLD = 32; // minimum score required to mark session as Completed
+    const THRESHOLD = 12; // minimum score required to mark session as Completed
 
     /* --- (Optional) time-on-task + tab switch tracking --- */
     let seconds = Number(localStorage.getItem('time_' + ID) || 0);

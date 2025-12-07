@@ -151,11 +151,11 @@
   const ids = ['s1','s2','s3','s4','s5'];
 
   const names = {
-    s1:'Mga Sanhi ng Unang Digmaang Pandaigdig',
-    s2:'Pagsiklab ng Unang Digmaang Pandaigdig',
-    s3:'Mga Pangyayari sa Unang Digmaang Pandaigdig',
-    s4:'Pagwawakas ng Unang Digmaang Pandaigdig',
-    s5:'BONUS ROUND — Liga ng mga Bansa'
+    s1:'AP8 Q3 Week 1-1 Mga Sanhi ng Unang Digmaang Pandaigdig',
+    s2:'AP8 Q3 Week 1-2 Pagsiklab ng Unang Digmaang Pandaigdig',
+    s3:'AP8 Q3 Week 1-3 Mga Pangyayari sa Unang Digmaang Pandaigdig',
+    s4:'AP8 Q3 Week 1-4 Pagwawakas ng Unang Digmaang Pandaigdig',
+    s5:'AP8 Q3 Week 1-5 BONUS ROUND from Lesson Exemplar'
   };
 
   function moduleRow(id){
@@ -164,6 +164,15 @@
     const time = Number(localStorage.getItem('time_'+id)||0);
     const score = Number(localStorage.getItem('score_'+id)||0);
     const max = Number(localStorage.getItem('scoreMax_'+id)||0);
+
+    /* ========= AUTO MARK AS DONE IF SCORE ≥ 75% ========= */
+    if (max > 0) {
+      const passingScore = Math.ceil(max * 0.75);
+      if (score >= passingScore) {
+        localStorage.setItem('done_'+id, "1");
+      }
+    }
+    /* ==================================================== */
 
     const mins = Math.floor(time/60);
     const secs = String(time%60).padStart(2,'0');
