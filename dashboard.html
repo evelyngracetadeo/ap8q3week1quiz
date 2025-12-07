@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AP8 Dashboard</title>
+  <style>
+    body{
+      margin:0;
+      font-family:"Segoe UI", Inter, Arial;
+      background:#f7f7fa;
+      color:#1f2937;
+    }
+
+    /* HEADER */
+    header{
+      background:linear-gradient(135deg,#A1C4FD,#C2E9FB);
+      padding:26px 16px;
+      text-align:center;
+      box-shadow:0 3px 12px rgba(0,0,0,.15);
+      position:relative;
+    }
+    header h1{
+      margin:0;
+      font-size:28px;
+      font-weight:800;
+    }
+    header p{
+      margin:6px 0 0;
+      font-size:14px;
+      opacity:.85;
+      font-weight:500;
+    }
+
+    /* BACK BUTTON */
+    .back-btn{
+      position:absolute;
+      top:14px;
+      left:16px;
+      background:#1f2937;
+      color:white;
+      padding:8px 14px;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:600;
+      text-decoration:none;
+      transition:.2s;
+    }
+    .back-btn:hover{
+      background:#111827;
+    }
+
+    .container{
+      max-width:900px;
+      margin:0 auto;
+      padding:20px 16px;
+    }
+
+    /* STATUS BOX */
+    .status-box{
+      padding:12px;
+      background:white;
+      border-radius:12px;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);
+      margin-bottom:20px;
+      border-left:6px solid #3b82f6;
+      font-size:14px;
+    }
+
+    /* MODULE CARD */
+    .module-card{
+      padding:18px;
+      margin-bottom:16px;
+      border-radius:14px;
+      background:white;
+      box-shadow:0 3px 10px rgba(0,0,0,.10);
+      border-left:6px solid #1f2937;
+    }
+
+    /* BG gradient label ribbon */
+    .label{
+      padding:8px 12px;
+      border-radius:8px;
+      font-size:13px;
+      display:inline-block;
+      font-weight:600;
+      margin-bottom:10px;
+      color:#1f2937;
+      background:linear-gradient(135deg,#FFDEE9,#B5FFFC);
+    }
+
+    .module-card h2{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+      color:#1f2937;
+    }
+
+    .meta{
+      font-size:13px;
+      color:#475569;
+      margin-top:4px;
+    }
+
+    /* BADGES */
+    .badge{
+      margin-top:10px;
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:600;
+      color:white;
+    }
+    .done{ background:#22c55e; }
+    .todo{ background:#94a3b8; }
+    .score-bad{ color:#b91c1c;font-weight:700;margin-left:4px; }
+
+    footer{
+      text-align:center;
+      font-size:13px;
+      color:#6b7280;
+      margin:30px 0 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="back-btn" href="index.html">← Back</a>
+  <h1>Progress Dashboard</h1>
+  <p>AP8 • Quarter 3 • Week 1</p>
+</header>
+
+<main class="container">
+
+  <div class="status-box">
+    <strong>Status:</strong> <span id="net"></span> • <span id="pwa"></span>
+  </div>
+
+  <div id="modules"></div>
+
+</main>
+
+<footer>
+  Progress saved offline on this device only.
+</footer>
+
+<script>
+  const ids = ['s1','s2','s3','s4','s5'];
+
+  const names = {
+    s1:'Mga Sanhi ng Unang Digmaang Pandaigdig',
+    s2:'Pagsiklab ng Unang Digmaang Pandaigdig',
+    s3:'Mga Pangyayari sa Unang Digmaang Pandaigdig',
+    s4:'Pagwawakas ng Unang Digmaang Pandaigdig',
+    s5:'BONUS ROUND — Liga ng mga Bansa'
+  };
+
+  function moduleRow(id){
+    const done = localStorage.getItem('done_'+id)==='1';
+    const switches = Number(localStorage.getItem('switch_'+id)||0);
+    const time = Number(localStorage.getItem('time_'+id)||0);
+    const score = Number(localStorage.getItem('score_'+id)||0);
+    const max = Number(localStorage.getItem('scoreMax_'+id)||0);
+
+    const mins = Math.floor(time/60);
+    const secs = String(time%60).padStart(2,'0');
+
+    const warn = (!done && max>0 && score < 32)
+      ? `<span class='score-bad'>— score ${score}/${max}</span>`
+      : '';
+
+    const card = document.createElement('div');
+    card.className = 'module-card';
+
+    card.innerHTML = `
+      <span class="label">INTERACTIVE QUIZ</span>
+      <h2>${names[id]}</h2>
+      <div class="meta">
+        Tab switches: ${switches} • Time on task: ${mins}:${secs} • Score: ${score||0}/${max||0}
+      </div>
+      <span class="badge ${done?'done':'todo'}">${done?'Completed':'Not Completed'}${warn}</span>
+    `;
+
+    return card;
+  }
+
+  function mount(){
+    const container = document.getElementById('modules');
+    ids.forEach(id => container.appendChild(moduleRow(id)));
+
+    document.getElementById('net').textContent = navigator.onLine ? 'Online' : 'Offline';
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                         window.navigator.standalone;
+    document.getElementById('pwa').textContent = isStandalone ? 'App Mode' : 'Browser Mode';
+  }
+
+  mount();
+</script>
+
+</body>
+</html>

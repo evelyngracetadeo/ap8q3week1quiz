@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AP8 • Quarter 3 • Week 1</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", Inter, Arial;
+        background: #f7f7fa;
+        color: #1f2937;
+    }
+
+    /* HEADER WITH SOFT GRADIENT */
+    header {
+        background: linear-gradient(135deg, #FF9A9E, #FAD0C4);
+        color: #1f2937;
+        padding: 28px 16px;
+        text-align: center;
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 3px 12px rgba(0,0,0,.15);
+        position: relative;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 32px;
+        font-weight: 800;
+    }
+    header p {
+        margin: 6px 0 0;
+        font-size: 14px;
+        opacity: .9;
+        font-weight: 500;
+    }
+
+    /* DASHBOARD BUTTON */
+    .dash-btn {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        background: #1f2937;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background .2s;
+    }
+    .dash-btn:hover {
+        background: #111827;
+    }
+
+    /* QUOTE */
+    .quote {
+        margin: 24px auto;
+        max-width: 780px;
+        padding: 16px 20px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #A1C4FD, #C2E9FB);
+        color: #1f2937;
+        font-style: italic;
+        font-size: 16px;
+        box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        border-left: 6px solid #3b82f6;
+    }
+
+    .container {
+        max-width: 850px;
+        margin: 0 auto;
+        padding: 16px;
+    }
+
+    /* CARD DESIGN */
+    .card {
+        padding: 18px;
+        margin-bottom: 16px;
+        border-radius: 14px;
+        color: #1f2937;
+        border: 1px solid #e5e7eb;
+        box-shadow: 0 3px 10px rgba(0,0,0,.08);
+        transition: transform .15s, box-shadow .15s;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    }
+    .card h2 {
+        margin: 0 0 8px;
+        font-size: 19px;
+        font-weight: 700;
+    }
+
+    /* GRADIENTS */
+    .m1 { background: linear-gradient(135deg, #FFDEE9, #B5FFFC); }
+    .m2 { background: linear-gradient(135deg, #FEF9D7, #F9D4C6); }
+    .m3 { background: linear-gradient(135deg, #E0C3FC, #8EC5FC); }
+    .m4 { background: linear-gradient(135deg, #D4FC79, #96E6A1); }
+    .bonus {
+        background: linear-gradient(135deg, #FAD0C4, #FFD1FF);
+        border-left: 6px solid #ec4899;
+    }
+
+    /* BUTTON */
+    a.btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 16px;
+        text-decoration: none;
+        background: #1f2937;
+        color: white;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: background .2s;
+        font-size: 14px;
+    }
+    a.btn:hover {
+        background: #111827;
+    }
+
+    footer {
+        margin: 30px 0 16px;
+        text-align: center;
+        font-size: 13px;
+        color: #6b7280;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <a class="dash-btn" href="dashboard.html">Dashboard</a>
+    <h1>AP8 • Quarter 3 • Week 1</h1>
+    <p>Prepared by: Ma’am Eve</p>
+</header>
+
+<div class="quote">
+    “Sa pag-aaral ng kasaysayan, natututo tayong hindi lamang unawain ang mga digmaan—kundi pahalagahan ang kapayapaang pinaghirapan ng mundo.”
+</div>
+
+<div class="container">
+
+    <div class="card m1">
+        <h2>Quiz 1 — Mga Sanhi ng Unang Digmaang Pandaigdig</h2>
+        <a class="btn" href="AP8 Q3 Week 1-1 Mga Sanhi ng Unang Digmaang Pandaigdig.html">Open Interactive Quiz</a>
+    </div>
+
+    <div class="card m2">
+        <h2>Quiz 2 — Pagsiklab ng Unang Digmaang Pandaigdig</h2>
+        <a class="btn" href="AP8 Q3 Week 1-2 Pagsiklab ng Unang Digmaang Pandaigdig.html">Open Interactive Quiz</a>
+    </div>
+
+    <div class="card m3">
+        <h2>Quiz 3 — Mga Pangyayari sa Unang Digmaang Pandaigdig</h2>
+        <a class="btn" href="AP8 Q3 Week 1-3 Mga Pangyayari sa Unang Digmaang Pandaigdig.html">Open Interactive Quiz</a>
+    </div>
+
+    <div class="card m4">
+        <h2>Quiz 4 — Pagwawakas ng Unang Digmaang Pandaigdig</h2>
+        <a class="btn" href="AP8 Q3 Week 1-4 Pagwawakas ng Unang Digmaang Pandaigdig.html">Open Interactive Quiz</a>
+    </div>
+
+    <div class="card bonus">
+        <h2>BONUS ROUND from Lesson Exemplar</h2>
+        <a class="btn" href="AP8 Q3 Week 1-5 BONUS ROUND from Lesson Exemplar.html">Open Interactive Quiz</a>
+    </div>
+
+</div>
+
+<footer>
+    © 2025 • AP8 Learning Materials
+</footer>
+
+</body>
+</html>
