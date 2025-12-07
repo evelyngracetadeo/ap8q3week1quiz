@@ -46,7 +46,7 @@
         if (el.msRequestFullscreen) return el.msRequestFullscreen();
         return Promise.resolve();
       }
-      let remaining = 20 * 60; // 1200 seconds
+      let remaining = 15 * 60; // 900 seconds
       let ticking = null;
       function fmt(s){ const m=Math.floor(s/60), ss=s%60; return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`; }
       function updateTimer(){ const el=document.querySelector('#time'); if(el) el.textContent = fmt(remaining); }
