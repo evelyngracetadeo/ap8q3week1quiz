@@ -168,7 +168,7 @@
     const mins = Math.floor(time/60);
     const secs = String(time%60).padStart(2,'0');
 
-    const warn = (!done && max>0 && score < 32)
+    const warn = (!done && max>0 && score < 10)
       ? `<span class='score-bad'>— score ${score}/${max}</span>`
       : '';
 
